@@ -1,0 +1,19 @@
+{
+  "name": "borodino-village",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.71.1",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "normalize-scss": "^8.0.0"
+  }
+}

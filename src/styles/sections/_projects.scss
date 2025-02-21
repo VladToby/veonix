@@ -1,0 +1,252 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "sidebar" as *;
+@use "../common/arrow" as *;
+
+.projects {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+
+  @include respond-to('desktop-smaller') {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "sidebar content";
+  }
+
+  @include respond-to('tablet') {
+    display: flex;
+    flex-direction: column;
+    grid-template-areas: none;
+  }
+
+  &__side-text {
+    @include side-text($background-color: $dark);
+
+    @include respond-to('desktop-smaller') {
+      grid-area: sidebar;
+    }
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to('desktop-smaller') {
+      grid-area: content;
+    }
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    &__title {
+      @include adaptive-font(64, 44);
+      margin-bottom: clamp(15px, 3vw, 30px);
+      text-transform: uppercase;
+    }
+
+    &__description {
+      @include adaptive-font(24, 18);
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .house-view {
+      flex: 2;
+      width: 100%;
+      height: auto;
+
+      min-height: 300px;
+
+      &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .info-block {
+      flex: 1;
+      background: $c_info-section-background;
+      padding: clamp(20px, 5vw, 60px) clamp(20px, 3vw, 40px);
+    }
+  }
+
+  &__right {
+    flex: 1;
+    background-color: $c_default-text;
+    opacity: 0.8;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    .floor-plans {
+      display: flex;
+      flex-direction: row;
+      max-height: 441px;
+      height: 100vh;
+
+      @include respond-to('desktop-medium') {
+        max-height: 300px;
+      }
+
+      @include respond-to('tablet') {
+        max-height: none;
+        height: auto;
+      }
+
+      .floor-plans__images {
+        display: flex;
+        height: 100%;
+
+        @include respond-to('desktop-medium') {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          height: auto;
+          width: 100%;
+        }
+
+        @include respond-to('tablet') {
+          grid-template-columns: 1fr;
+          flex-direction: column;
+
+          img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    .projects-navigation {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+      padding: clamp(10px, 2vw, 20px);
+
+      @media (max-width: 1024px) {
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .arrow {
+        @include arrow($color: $dark, $hover_color: $c_default-background);
+      }
+    }
+
+    .project-info {
+      padding: 0 clamp(20px, 5vw, 60px) clamp(20px, 5vw, 20px) clamp(20px, 5vw, 60px);
+      color: $dark;
+
+      &__square {
+        @include adaptive-font(64, 44);
+        display: inline-block;
+        margin-right: 10px;
+        font-family: $f_etna;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      &__title {
+        @include adaptive-font(48, 36);
+        display: inline-block;
+        margin-bottom: clamp(20px, 4vw, 40px);
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .project-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(10px, 2vw, 20px);
+        margin-bottom: clamp(20px, 4vw, 40px);
+        max-width: max-content;
+
+        @include respond-to('tablet') {
+          flex-direction: column;
+        }
+      }
+
+      .feature {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        width: calc(30% - 10px);
+
+        @include respond-to('mobile') {
+          width: 100%;
+        }
+
+        &__number {
+          @include adaptive-font(64, 36);
+          font-family: $f_etna;
+        }
+
+        &__text {
+          @include adaptive-font(32, 24);
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  &__controls {
+    text-align: center;
+
+    .btn {
+      &--request {
+        @include adaptive-font(18, 16);
+        display: inline-block;
+        padding: clamp(10px, 3vw, 20px);
+        width: 75%;
+        background: $c_default-background;
+        color: $c_default-text;
+        text-decoration: none;
+        border-radius: 40px;
+        transition: all 0.3s;
+
+        &:hover, &:focus {
+          background: darken($c_default-background, 5%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+.house-view,
+.floor-plans {
+  .splide {
+    height: 100%;
+  }
+
+  .splide__track,
+  .splide__list {
+    height: 100%;
+  }
+
+  .splide__slide {
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.splide__track {
+  overflow: hidden;
+}

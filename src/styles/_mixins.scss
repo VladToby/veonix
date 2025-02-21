@@ -1,0 +1,26 @@
+// Миксин для медиа-запросов
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "desktop-medium" {
+    @media (max-width: 1440px) { @content; }
+  }
+  @if $breakpoint == "desktop-small" {
+    @media (max-width: 1200px) { @content; }
+  }
+  @if $breakpoint == "desktop-smaller" {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $breakpoint == "tablet" {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $breakpoint == "mobile" {
+    @media (max-width: 480px) { @content; }
+  }
+}
+
+// Миксин для адаптивного изменения размера шрифта
+$maxWidth: 1920;
+@mixin adaptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - 320;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw - 320px) / #{$maxWidth});
+}

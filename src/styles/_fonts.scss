@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Muller-Trial';
+  src: url('../assets/fonts/Muller-Trial/Muller-Trial-Regular.woff2') format('woff2'),
+  url('../assets/fonts/Muller-Trial/Muller-Trial-Regular.woff') format('woff'),
+  url('../assets/fonts/Muller-Trial/Muller-Trial-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muller-Trial';
+  src: url('../assets/fonts/Muller-Trial/Muller-Trial-Bold.woff2') format('woff2'),
+  url('../assets/fonts/Muller-Trial/Muller-Trial-Bold.woff') format('woff'),
+  url('../assets/fonts/Muller-Trial/Muller-Trial-Bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Etna';
+  src: url('../assets/fonts/Etna/Etna-Regular.woff2') format('woff2'),
+  url('../assets/fonts/Etna/Etna-Regular.woff') format('woff'),
+  url('../assets/fonts/Etna/Etna-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
