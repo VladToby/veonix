@@ -106,7 +106,6 @@
         @include respond-to('desktop-medium') {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 10px;
           height: auto;
           width: 100%;
         }
@@ -212,7 +211,8 @@
         transition: all 0.3s;
 
         &:hover, &:focus {
-          background: darken($c_default-background, 5%);
+          background: $c_default-background;
+          opacity: 0.9;
           transform: translateY(-2px);
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }

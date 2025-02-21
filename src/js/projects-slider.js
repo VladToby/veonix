@@ -1,11 +1,11 @@
 import { BaseSlider } from "@/js/base-slider.js";
 import { Splide } from "@splidejs/splide";
-import sliderData from "@/js/data/data.json";
+import { projectsData } from "@/js/mock/data.js";
 
 export class ProjectsSlider extends BaseSlider {
     constructor() {
         super();
-        this.slides = sliderData.projects_slides;
+        this.slides = projectsData;
         this.totalSlides = this.slides.length;
 
         this.initElements();
@@ -87,7 +87,8 @@ export class ProjectsSlider extends BaseSlider {
             pagination: false,
             speed: 600,
             drag: false,
-            lazyLoad: 'nearby'
+            lazyLoad: 'nearby',
+            preloadPages: 2
         };
 
         this.houseSplidе = new Splide('.house-splide', commonOptions).mount();

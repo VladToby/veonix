@@ -1,11 +1,11 @@
 import { BaseSlider } from "@/js/base-slider.js";
 import { Splide } from "@splidejs/splide";
-import sliderData from "@/js/data/data.json";
+import { slidesData } from "@/js/mock/data"
 
 export class MainInfoSlider extends BaseSlider {
     constructor() {
         super();
-        this.slides = sliderData.slides;
+        this.slides = slidesData;
         this.totalSlides = this.slides.length;
 
         this.elements = {
@@ -82,6 +82,7 @@ export class MainInfoSlider extends BaseSlider {
             speed: 600,
             trimSpace: false,
             lazyLoad: 'nearby',
+            preloadPages: 2,
             rewind: false,
             breakpoints: {
                 1024: tabletOptions,
